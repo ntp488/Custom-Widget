@@ -34,7 +34,7 @@ public class CustomWidgetKeywords {
         ComponentChooser chooser = new CustomWidgetChooser();
         JComponentOperator operator = new JComponentOperator(context, chooser);
         CustomWidget w = (CustomWidget)operator.getSource();
-        Rectangle bounds = w.getShape().getBounds();
+        Rectangle bounds = w.getShapes()[0].getBounds();
         operator.clickMouse(bounds.x + bounds.width/2, bounds.y + bounds.height/2, 1);
     }
     
@@ -45,7 +45,7 @@ public class CustomWidgetKeywords {
         ComponentChooser chooser = new CustomWidgetChooser();
         JComponentOperator operator = new JComponentOperator(context, chooser);
         CustomWidget w = (CustomWidget)operator.getSource();
-        Rectangle bounds = w.getShape().getBounds();
+        Rectangle bounds = w.getShapes()[0].getBounds();
         operator.clickMouse(bounds.x - 10, bounds.y - 10, 1);
     }
         

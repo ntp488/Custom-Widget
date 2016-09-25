@@ -10,7 +10,7 @@ public class CustomWidgetTest {
     private CustomWidget widget;
     
     private Point getCenterOfWidget() {
-        Rectangle bounds = widget.getShape().getBounds();
+        Rectangle bounds = widget.getShapes()[0].getBounds();
         return new Point(bounds.x + bounds.width/2, bounds.y + bounds.height/2);
     }
     

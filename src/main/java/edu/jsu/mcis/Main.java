@@ -5,31 +5,37 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Main extends JPanel implements ShapeObserver {
-    private CustomWidget widget;
+    private CustomWidget customWidget;
     private JLabel label;
 
     public Main() {
-        widget = new CustomWidget();
-        widget.addShapeObserver(this);
-        label = new JLabel("NOT SELECTED", JLabel.CENTER);
+        customWidget = new CustomWidget();
+        customWidget.addShapeObserver(this);
+        
+        label = new JLabel("Hexagon", JLabel.CENTER);
         label.setName("label");
+        
         setLayout(new BorderLayout());
-        add(widget, BorderLayout.CENTER);
+        add(customWidget, BorderLayout.CENTER);
         add(label, BorderLayout.NORTH);
+        
     }
     
     public void shapeChanged(ShapeEvent event) {
-        if(event.isSelected()) { label.setText("SELECTED"); }
-        else { label.setText("NOT SELECTED"); }
+        if(event.isSelected()) { 
+            label.setText("Hexagon");
+        } else if (!event.isSelected()) {
+            label.setText("Octagon");
+        }
     }
 
 
 	public static void main(String[] args) {
-		JFrame window = new JFrame();
-        window.setTitle("Main");
-        window.add(new Main());
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(500, 500);
-        window.setVisible(true);
+            JFrame window = new JFrame();
+            window.setTitle("Main");
+            window.add(new Main());
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setSize(500, 500);
+            window.setVisible(true);
 	}
 }
