@@ -20,8 +20,8 @@ public class CustomWidgetTest {
     }
     
 	@Test
-	public void testWidgetIsInitiallyDeselected() {
-		assertFalse(widget.isSelected());
+	public void testWidgetHexagonIsInitiallySelected() {
+            assertTrue(widget.isSelected());
 	}
     
     @Test
