@@ -62,21 +62,22 @@ public class CustomWidget extends JPanel implements MouseListener {
     private void calculateVertices(int width, int height) {
         // Square size should be half of the smallest dimension (width or height).
 
-        int side = Math.min(width, height) / 4;
+        int size = Math.min(width, height) / 2;
         
-        Point[] hexsign = {new Point(-4, 0), new Point(-3, 2), new Point(-2, 2),
-            new Point(-1, 0), new Point(-2, -2), new Point(-3, -2)};
         for(int i = 0; i < hexagonVertices.length; i++) {
-            hexagonVertices[i].setLocation(width/2 + hexsign[i].x * side/2, height/2 + hexsign[i].y * side/2);
+            double rads = 0 + (i * (Math.PI / (hexagonVertices.length / 2)));
+            double x = Math.cos(rads);
+            double y = Math.sin(rads);
+            hexagonVertices[i].setLocation(width/3 + (x * (size/4)), height/2 + (y * (size/4)));
         }
         
-        Point[] octsign = {new Point(1, 1), new Point(2, 2), new Point(3, 2),
-            new Point(4, 1), new Point(4, -1), new Point(3, -2),
-            new Point(2, -2), new Point(1, -1)};
         for(int i = 0; i < octagonVertices.length; i++) {
-            octagonVertices[i].setLocation(width/2 + octsign[i].x * side/2, height/2 + octsign[i].y * side/2);
+            double rads = Math.PI * 0.125 + (i * (Math.PI / (octagonVertices.length / 2)));
+            double x = Math.cos(rads);
+            double y = Math.sin(rads);
+            octagonVertices[i].setLocation(width - (width/3) + (x * (size/4)), height/2 + (y * (size/4)));
         }
-        
+
     }
     
     @Override
